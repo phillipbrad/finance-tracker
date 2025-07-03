@@ -19,6 +19,7 @@
     "express-session": "^1.18.1",
     "express-sessions": "^1.0.6",
     "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "pkce-challenge": "^5.0.0",
