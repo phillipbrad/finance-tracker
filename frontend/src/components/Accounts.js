@@ -27,7 +27,7 @@ const Accounts = ({ handleConsentError }) => {
         const fetchAccounts = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch('/banks/balances', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/balances`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

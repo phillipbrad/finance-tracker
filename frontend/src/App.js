@@ -52,7 +52,7 @@ function App() {
   // Handler to extend connection
   const handleExtendConnection = async () => {
     const token = localStorage.getItem('token');
-    const res = await fetch('/banks/extend-connection', {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/extend-connection`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_has_reconfirmed_consent: true })
@@ -73,7 +73,7 @@ function App() {
     window.__linkBankLoading = true;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('/banks/link', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/link`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.status === 401 || res.status === 403) {

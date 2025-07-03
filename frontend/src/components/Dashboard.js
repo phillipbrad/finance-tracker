@@ -32,7 +32,7 @@ const Dashboard = ({ handleConsentError }) => {
         /* Fetches account balances from the backend, handles auth errors, and updates dashboard state. */
         const fetchBalance = async () => {
             try {
-                const res = await fetch('/banks/balances', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/balances`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.status === 401 || res.status === 403) {
@@ -67,7 +67,7 @@ const Dashboard = ({ handleConsentError }) => {
         /* Fetches total income from the backend, handles auth errors, and updates income state. */
         const fetchIncome = async () => {
             try {
-                const res = await fetch('/banks/income', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/income`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.status === 401 || res.status === 403) {
@@ -92,7 +92,7 @@ const Dashboard = ({ handleConsentError }) => {
         /* Fetches all transactions, handles auth errors, updates transactions and expenses state. */
         const fetchTransactions = async () => {
             try {
-                const res = await fetch('/banks/transactions', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/transactions`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.status === 401 || res.status === 403) {
@@ -199,7 +199,7 @@ const Dashboard = ({ handleConsentError }) => {
         window.handleLinkBank = handleLinkBank; // Make available globally for modal
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch('/banks/link', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/link`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (res.status === 401 || res.status === 403) {

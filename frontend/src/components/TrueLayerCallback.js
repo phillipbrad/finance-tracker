@@ -28,7 +28,7 @@ function TrueLayerCallback() {
             if (didRun.current) return; // Only run once
             didRun.current = true;
             try {
-                const response = await fetch(`/banks/callback?code=${code}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/banks/callback?code=${code}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

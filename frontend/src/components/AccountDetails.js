@@ -49,7 +49,7 @@ const AccountDetails = ({ handleConsentError }) => {
         /* Fetch all balances and find the one for this account */
         const fetchBalance = async () => {
             try {
-                const res = await fetch('/banks/balances', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/balances`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const data = await res.json();
@@ -68,7 +68,7 @@ const AccountDetails = ({ handleConsentError }) => {
         const fetchTransactions = async () => {
             try {
 
-                const res = await fetch(`/banks/transactions/${accountId}`, {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/transactions/${accountId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.status === 401 || res.status === 403) {

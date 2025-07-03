@@ -26,7 +26,7 @@ const RegularPayments = ({ handleConsentError }) => {
         const fetchTransactions = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch('/banks/transactions', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/transactions`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.status === 401 || res.status === 403) {
