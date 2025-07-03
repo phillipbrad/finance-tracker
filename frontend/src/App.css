@@ -1,0 +1,584 @@
+/* Emerald spinner for loading indicator */
+.emerald-spinner {
+  border-color: #00C896 #e0e0e0 #e0e0e0;
+  border-right-color: transparent;
+}
+
+.spinner-border.emerald-spinner {
+  color: #00C896;
+  border-width: 0.25em;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e6f9f2 0%, #f8f9fa 100%);
+}
+
+
+.card-body {
+  background: linear-gradient(135deg, #e6f9f2 0%, #f8f9fa 100%);
+}
+
+.dashboard-link-bank-card.card {
+  background: linear-gradient(135deg, #e6f9f2 0%, #f8f9fa 100%) !important;
+}
+
+
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    background: #00C896;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.back-to-top-btn:hover {
+    background: #009e7a;
+}
+
+/* Filter bar styles for transaction tables */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+.filter-bar select.form-select-sm {
+    min-width: 100px;
+    max-width: 180px;
+}
+.filter-bar .btn-outline-secondary {
+    min-width: 64px;
+}
+
+/* --- Transactions.js styles moved here --- */
+.transactions-search-bar { width: 120px; }
+.transactions-sort-select { width: 140px; }
+.transactions-type-select { width: 120px; }
+.transactions-category-select { width: 150px; }
+.transactions-month-select { width: 120px; }
+.transactions-reset-btn { min-width: 64px; }
+
+/* --- RegularPayments.js styles --- */
+.transactions-type-filter {
+  width: 160px;
+  min-width: 120px;
+  max-width: 180px;
+}
+.transactions-month-filter {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+.regular-payments-card {
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+  border-radius: 16px;
+  background: #fff;
+}
+.regular-payments-table th,
+.regular-payments-table td {
+  vertical-align: middle;
+  font-size: 1.01em;
+}
+@media (max-width: 767.98px) {
+  .regular-payments-card {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+  .regular-payments-table th,
+  .regular-payments-table td {
+    font-size: 0.97em;
+  }
+}
+
+/* Table styles for transactions */
+.table-striped.align-middle th,
+.table-striped.align-middle td {
+  vertical-align: middle;
+}
+
+
+.table.custom-table thead {
+  background-color: #00C896 !important; /* Teal-green header */
+  color: white !important;
+}
+.custom-table thead tr th {
+  background: #00C896 !important;
+  color: #fff !important;
+}
+
+/* Set table background */
+.custom-table {
+  background: #fff !important; /* or your desired color/gradient */
+}
+
+/* Set all table cell backgrounds */
+.custom-table th,
+.custom-table td {
+  background: transparent !important; /* Let the table background show through */
+}
+
+/* Header styling */
+.custom-table thead,
+.custom-table thead tr,
+.custom-table thead th {
+  background: #00C896 !important;
+  color: #fff !important;
+}
+
+/* Even row styling */
+.custom-table tbody tr:nth-child(even) td {
+  background: #f2fdfb !important;
+}
+
+/* Row hover styling */
+.custom-table tbody tr:hover td {
+  background: #e6faf3 !important;
+}
+
+
+/* Filter chips (badges) */
+.badge.rounded-pill.d-flex.align-items-center {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5em 1.1em 0.5em 1em;
+  background: #00C896;
+  color: #fff;
+  border: none;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.badge-close-btn { font-size: 0.7em; filter: invert(1); opacity: 0.7; margin-left: 0.5em; transition: opacity 0.15s; }
+.badge-close-btn:hover { opacity: 1; }
+.badge .btn-close {
+  filter: invert(1);
+  opacity: 0.7;
+  margin-left: 0.5em;
+  font-size: 0.7em;
+  transition: opacity 0.15s;
+}
+.badge .btn-close:hover {
+  opacity: 1;
+}
+
+/* Chart tooltip style */
+.chart-tooltip-style { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: none; color: #222; }
+
+/* Login form disabled style */
+.login-form-disabled { opacity: 0.5; pointer-events: none; }
+
+/* Icon circle style */
+.icon-circle { border-radius: 50%; background: #e6f9f2; display: flex; align-items: center; justify-content: center; }
+
+/* Account logo image style */
+.account-logo-img { width: 28px; height: 28px; object-fit: contain; }
+
+/* Responsive tweaks for filter bar */
+@media (max-width: 600px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+}
+
+/* Table responsive tweaks */
+@media (max-width: 767.98px) {
+  .table-responsive {
+    font-size: 0.97em;
+  }
+}
+
+/* Bottom nav Styling */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+  z-index: 1300;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: #00C896;
+  font-size: 2.2rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.bottom-nav button:active, .bottom-nav button:focus {
+  background: #e6f9f3;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+/* Offcanvas sidebar for ResponsiveNav - full height, no gap at top */
+.offcanvas-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  min-height: 100vh;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 1050 !important;
+  pointer-events: auto;
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.offcanvas-custom .ps-sidebar-root {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #e6f9f2 0%, #00C896 40%, #f8f9fa 100%) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  top: 0 !important;
+}
+
+/* Offcanvas backdrop for ResponsiveNav */
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.03); /* even lighter overlay */
+  z-index: 1040 !important;
+  pointer-events: auto;
+}
+
+/* Hide offcanvas and hamburger above 1400px */
+@media (min-width: 1400px) {
+  .offcanvas-custom {
+    display: none !important;
+  }
+  .responsive-hamburger {
+    display: none !important;
+  }
+}
+/* Hide offcanvas and hamburger below 768px (mobile) */
+@media (max-width: 767.98px) {
+  .offcanvas-custom {
+    display: none !important;
+  }
+  .responsive-hamburger {
+    display: none !important;
+  }
+}
+/* Default: show hamburger and offcanvas between 768px and 1354px */
+.offcanvas-custom,
+.responsive-hamburger {
+  display: block;
+}
+
+.responsive-hamburger {
+  background: #fff;
+  border: 2px solid #00C896;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 0;
+}
+.responsive-hamburger:focus,
+.responsive-hamburger:hover {
+  border-color: #009e7a;
+  box-shadow: 0 4px 16px rgba(0,200,150,0.10);
+  outline: none;
+}
+
+
+/* --- Accounts.css --- */
+.account-card {
+  transition: box-shadow 0.2s, transform 0.2s;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+  background: linear-gradient(135deg, #e6f9f2 0%, #f8f9fa 100%);
+}
+.account-card:hover, .account-card:focus {
+  box-shadow: 0 4px 24px rgba(0,200,150,0.13), 0 3px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px) scale(1.015);
+  border-color: #00C896;
+  z-index: 2;
+}
+
+/* --- Transactions.css --- */
+.transaction-card {
+  border-left: 6px solid #007bff !important;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.transaction-card:hover, .transaction-card:focus {
+  box-shadow: 0 6px 24px rgba(0, 123, 255, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+  transform: translateY(-2px) scale(1.025);
+  z-index: 2;
+}
+.sticky-date-header {
+  position: sticky;
+  top: 0;
+  background: #f8f9fa;
+  z-index: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    min-height: auto;
+    box-shadow: none;
+  }
+}
+
+/* Custom modal backdrop for LinkBankAccountModal and similar modals */
+.custom-modal-backdrop {
+  display: block;
+  background: rgba(0,0,0,0.3);
+  pointer-events: auto;
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+}
+
+/* Dashboard link bank card style */
+.dashboard-link-bank-card {
+  position: static;
+  width: 100%;
+  max-width: 380px;
+  margin: 1.5rem auto 1.5rem auto;
+  z-index: 10;
+  font-size: 0.95em;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+  border-radius: 12px;
+  background: #fff;
+}
+@media (max-width: 991.98px) {
+  .dashboard-link-bank-card {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .dashboard-cards-row {
+    margin-top: 0;
+  }
+}
+
+/* Login page background and form styling for app theme consistency */
+.login-bg {
+  background: linear-gradient(135deg, #e6f9f2 0%, #f8f9fa 100%);
+  min-height: 100vh;
+  width: 100vw;
+}
+.login-form {
+  max-width: 370px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+  background: #fff;
+}
+.login-form .form-label {
+  font-weight: 500;
+  color: #222;
+}
+.login-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 1.05em;
+}
+.login-form .btn-primary {
+  background: #00C896;
+  border: none;
+  font-weight: 600;
+  font-size: 1.08em;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.login-form .btn-primary:hover, .login-form .btn-primary:focus {
+  background: #009e7a;
+}
+.login-form .alert {
+  font-size: 0.98em;
+  border-radius: 8px;
+}
+
+.custom-sidebar {
+  background-color: linear-gradient(135deg, #e6f9f2 0%, #00C896 40%, #f8f9fa 100%) !important;
+}
+/* Sidebar */
+.col-xxl-2.d-xxl-block,
+.custom-sidebar,
+.ps-sidebar-root {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  background: linear-gradient(135deg, #e6f9f2 0%, #00C896 40%, #f8f9fa 100%);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1020;
+}
+
+/* Strongest override for Pro Sidebar menu item hover/active/focus */
+.ps-sidebar-root .ps-menu-button.ps-active,
+.ps-sidebar-root .ps-menu-button:focus,
+.ps-sidebar-root .ps-menu-button:hover {
+  background: rgba(0, 200, 150, 0.18) !important;
+  color: #121212 !important;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.10), 0 1.5px 6px rgba(0,0,0,0.04) !important;
+  transition: background 0.18s, color 0.18s !important;
+}
+
+.ps-sidebar-root .ps-menu-button .ps-menuitem-icon {
+  color: #009e7a !important;
+  transition: color 0.18s !important;
+}
+
+.ps-sidebar-root .ps-menu-button.ps-active .ps-menuitem-icon,
+.ps-sidebar-root .ps-menu-button:hover .ps-menuitem-icon,
+.ps-sidebar-root .ps-menu-button:focus .ps-menuitem-icon {
+  color: #121212 !important;
+}
+
+/* Add vertical space between sidebar nav items */
+.ps-sidebar-root .ps-menu-button {
+  margin-bottom: 0.8rem;
+}
+
+/* Remove margin from last item for neatness */
+.ps-sidebar-root .ps-menu-container > :last-child .ps-menu-button {
+  margin-bottom: 0;
+}
+
+/* Off canvas styling */
+.offcanvas-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  min-height: 100vh;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 1050 !important;
+  pointer-events: auto;
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.offcanvas-custom .ps-sidebar-root {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #e6f9f2 0%, #00C896 40%, #f8f9fa 100%) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.03); /* even lighter overlay */
+  z-index: 1040 !important;
+  pointer-events: auto;
+}
+
+/* Accent button styles for forms (ForgotPassword, Register, etc.) */
+.btn-accent {
+  background: #00C896;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 1.08em;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.btn-accent:disabled {
+  opacity: 0.7;
+}
+.btn-accent:hover, .btn-accent:focus {
+  background: #009e7a;
+  color: #fff;
+}
+
+.btn-outline-accent {
+  background: #e6f9f2;
+  color: #00C896;
+  border: 1.5px solid #00C896;
+  font-weight: 500;
+  font-size: 1.05em;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-accent:hover, .btn-outline-accent:focus {
+  background: #00C896;
+  color: #fff;
+  border-color: #00C896;
+}
+
+
+
