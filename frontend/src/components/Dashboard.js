@@ -196,7 +196,6 @@ const Dashboard = ({ handleConsentError }) => {
     const handleLinkBank = async () => {
         if (window.__linkBankLoading) return; // Prevent double call
         window.__linkBankLoading = true;
-        window.handleLinkBank = handleLinkBank; // Make available globally for modal
         try {
             const token = localStorage.getItem('token');
             const res = await fetch(`${process.env.REACT_APP_API_URL}/banks/link`, {
@@ -208,7 +207,8 @@ const Dashboard = ({ handleConsentError }) => {
                 return;
             }
             const data = await res.json();
-            if (data.url) {
+            if (data.url && data.codeVerifier) {
+                localStorage.setItem('codeVerifier', data.codeVerifier);
                 window.location.href = data.url;
             }
         } finally {
