@@ -12,10 +12,8 @@ const router = express.Router();
 router.get('/link', authenticateJWT, async (req, res, next) => {
     try {
         const { url, codeVerifier, redirectUri } = await getLinkUrlForUser(req.user.id);
-        req.session.codeVerifier = codeVerifier;
-        req.session.codeExchangeDone = false; // Reset flag for new flow
-        req.session.save?.(); // Ensure session is saved
-        res.json({ url });
+        // Instead of storing codeVerifier in session, return it to the frontend
+        res.json({ url, codeVerifier });
     } catch (err) {
         next(err);
     }
@@ -24,16 +22,10 @@ router.get('/link', authenticateJWT, async (req, res, next) => {
 
 // Route to handle the OAuth callback and exchange code for tokens.
 router.get('/callback', authenticateJWT, async (req, res, next) => {
-    const { code } = req.query;
-    if (!code) return res.status(400).json({ error: 'Missing code' });
-    if (!req.session?.codeVerifier) {
-        return res.status(400).json({ error: 'Missing PKCE code_verifier in session. Please restart the bank linking process.' });
-    }
-    if (req.session.codeExchangeDone) {
-        return res.status(400).json({ error: 'This authorization code has already been used. Please restart the bank linking process.' });
-    }
+    const { code, codeVerifier } = req.query;
+    if (!code || !codeVerifier) return res.status(400).json({ error: 'Missing code or codeVerifier' });
     try {
-        const result = await exchangeCodeForToken(code, process.env.TL_REDIRECT_URI, req.session.codeVerifier);
+        const result = await exchangeCodeForToken(code, process.env.TL_REDIRECT_URI, codeVerifier);
         // Save tokens to DB
         await saveUserToken({
             user_id: req.user.id,
@@ -43,8 +35,6 @@ router.get('/callback', authenticateJWT, async (req, res, next) => {
             scope: result.scope,
             token_type: result.token_type
         });
-        req.session.codeExchangeDone = true; // Prevent re-use
-        req.session.save?.();
         console.log('Token exchange result:', result);
         return res.json({ success: true, tokens: result });
     } catch (err) {

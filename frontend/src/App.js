@@ -82,7 +82,8 @@ function App() {
         return;
       }
       const data = await res.json();
-      if (data.url) {
+      if (data.url && data.codeVerifier) {
+        localStorage.setItem('codeVerifier', data.codeVerifier);
         window.location.href = data.url;
       }
     } finally {

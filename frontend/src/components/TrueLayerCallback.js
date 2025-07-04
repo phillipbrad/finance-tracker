@@ -19,20 +19,20 @@ function TrueLayerCallback() {
         const params = new URLSearchParams(location.search);
         const code = params.get('code');
         const token = localStorage.getItem('token');
+        const codeVerifier = localStorage.getItem('codeVerifier');
 
-        if (!code || !token) {
-            setError('Missing code or token.');
+        if (!code || !token || !codeVerifier) {
+            setError('Missing code, token, or codeVerifier.');
             setLoading(false);
             return;
         }
 
-
-        /* Calls the backend to complete the bank linking process, handles success and error states */
+        // Calls the backend to complete the bank linking process, handles success and error states
         const fetchData = async () => {
             if (didRun.current) return; // Only run once
             didRun.current = true;
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/banks/callback?code=${code}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/banks/callback?code=${code}&codeVerifier=${encodeURIComponent(codeVerifier)}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -40,6 +40,7 @@ function TrueLayerCallback() {
                     }
                 });
                 if (response.ok) {
+                    localStorage.removeItem('codeVerifier');
                     setLoading(false);
                     navigate('/dashboard');
                 } else {
