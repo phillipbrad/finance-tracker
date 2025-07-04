@@ -1,3 +1,7 @@
+
+// This component handles the OAuth redirect from TrueLayer.
+// TrueLayer should redirect to /truelayer-callback?code=... on the frontend.
+// The code is extracted and sent to the backend with the user's JWT in the Authorization header.
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
@@ -33,8 +37,7 @@ function TrueLayerCallback() {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
-                    },
-                    credentials: 'include'
+                    }
                 });
                 if (response.ok) {
                     setLoading(false);

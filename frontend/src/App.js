@@ -100,7 +100,7 @@ function App() {
           <Route path="/transactions" element={<Transactions handleConsentError={handleConsentError} />} />
           <Route path="/reset-password" element={<PasswordReset />} />
           <Route path="/dashboard" element={<Dashboard handleConsentError={handleConsentError} />} />
-          <Route path="/banks/callback" element={<TrueLayerCallback />} />
+          <Route path="/truelayer-callback" element={<TrueLayerCallback />} />
           <Route path="/regular-payments" element={<RegularPayments handleConsentError={handleConsentError} />} />
           <Route path="/" element={
             <div>
