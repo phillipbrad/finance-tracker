@@ -45,8 +45,8 @@ function Login({ onShowForgotPassword, onShowRegister }) {
     };
 
     return (
-        <div className="login-bg d-flex align-items-center justify-content-center min-vh-100">
-            {loading && <LoadingSpinner message="Logging in..." />}
+        <div className="login-bg d-flex align-items-center justify-content-center min-vh-100 position-relative">
+            {loading && <LoadingSpinner message="Logging in..." overlay />}
             <form className={`login-form card shadow-sm p-4 border-0 bg-white ${loading ? 'login-form-disabled' : ''}`} onSubmit={handleSubmit} aria-label="Login form">
                 <h2 className="mb-3 text-center fw-bold" style={{ color: '#00C896' }}>Login</h2>
                 {error && <div className="alert alert-danger" role="alert">{error}</div>}
