@@ -74,7 +74,7 @@ function Login({ onShowForgotPassword, onShowRegister }) {
                     />
                 </div>
                 <button type="submit" className="btn btn-accent w-100" disabled={loading}>
-                    {loading ? 'Logging in...' : 'Login'}
+                    Login
                 </button>
                 <button
                     type="button"
