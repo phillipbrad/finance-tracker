@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
@@ -8,6 +9,7 @@ function RegisterUser({ onBack, onRegisterSuccess }) {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [errorList, setErrorList] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     /* Handles registration form submission, validates input, and registers user via API */
@@ -15,8 +17,10 @@ function RegisterUser({ onBack, onRegisterSuccess }) {
         e.preventDefault();
         setLoading(true);
         setError('');
+        setErrorList([]);
         if (password !== confirmPassword) {
             setError('Passwords do not match');
+            setErrorList([]);
             setLoading(false);
             return;
         }
@@ -28,15 +32,26 @@ function RegisterUser({ onBack, onRegisterSuccess }) {
             });
             if (!response.ok) {
                 const data = await response.json();
-                setError(typeof data.error === 'string' ? data.error : 'Registration failed');
+                if (data.errors && Array.isArray(data.errors)) {
+                    setError('');
+                    setErrorList(data.errors.map(e => e.msg));
+                } else if (typeof data.error === 'string') {
+                    setError(data.error);
+                    setErrorList([]);
+                } else {
+                    setError('Registration failed');
+                    setErrorList([]);
+                }
             } else {
                 setError('');
+                setErrorList([]);
                 alert('Successfully registered!');
                 if (onRegisterSuccess) onRegisterSuccess();
                 navigate('/'); // Redirect to login after registration
             }
         } catch (err) {
             setError('Network error');
+            setErrorList([]);
         } finally {
             setLoading(false);
         }
@@ -44,10 +59,17 @@ function RegisterUser({ onBack, onRegisterSuccess }) {
 
     return (
         <div className="login-bg d-flex align-items-center justify-content-center min-vh-100">
-            {loading && <LoadingSpinner message="Registering..." />}
+            {loading && <LoadingSpinner message="Registering..." overlay />}
             <form className={`login-form card shadow-sm p-4 border-0 bg-white ${loading ? 'login-form-disabled' : ''}`} onSubmit={handleSubmit} aria-label="Register form">
                 <h2 className="mb-4 text-center fw-bold" style={{ color: '#00C896' }}>Register</h2>
                 {error && <div className="alert alert-danger" role="alert">{error}</div>}
+                {errorList.length > 0 && (
+                    <div className="alert alert-danger" role="alert">
+                        <ul className="mb-0 ps-3">
+                            {errorList.map((msg, idx) => <li key={idx}>{msg}</li>)}
+                        </ul>
+                    </div>
+                )}
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email</label>
                     <input
