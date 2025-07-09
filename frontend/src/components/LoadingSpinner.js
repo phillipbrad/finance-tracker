@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './LoadingSpinner.css';
 
 const LoadingSpinner = ({ className = '', style = {}, message = 'Loading...', overlay = false }) => {
     if (overlay) {

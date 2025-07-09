@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './components/LoadingSpinner.css';
 import Login from './components/Login';
 import RegisterUser from './components/register';
 import ForgotPassword from './components/ForgotPassword';
