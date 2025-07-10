@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Finance",
+  "name": "Finance Tracker",
+  "description": "A modern personal finance tracker app with secure bank linking, built with React, Node.js, and PostgreSQL.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#00C896",
   "background_color": "#ffffff"
 }
